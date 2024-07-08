@@ -5,51 +5,95 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Status Page</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; /* Position the tooltip above the text */
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%; /* At the bottom of the tooltip */
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
 </head>
 <body class="bg-gray-100 p-6">
     <div class="container mx-auto">
-        <div class="bg-white rounded shadow p-4 mb-6">
-            <h1 class="text-2xl font-bold mb-4">All Systems Operational</h1>
+        <div class="bg-white rounded shadow p-4 mb-6 flex items-center justify-between">
+            <img src="https://dashboard.expresspagamentos.com/tL9fHo2.png" alt="Express Pagamentos Logo" class="h-10">
+            <h1 class="text-2xl font-bold">All Systems Operational</h1>
         </div>
         <div class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
             <div class="bg-white rounded shadow p-4">
                 <h2 class="font-bold">API</h2>
                 <p class="text-green-600">Operational</p>
-                <div class="mt-2">
+                <div class="mt-2 tooltip">
                     <div class="h-1 w-full bg-gray-200 rounded">
                         <div class="h-1 bg-green-600 rounded" style="width: 99.95%"></div>
                     </div>
                     <p class="text-xs text-gray-600">99.95% uptime</p>
+                    <span class="tooltiptext">23 Apr 2024<br>No downtime recorded on this day.</span>
                 </div>
             </div>
             <div class="bg-white rounded shadow p-4">
                 <h2 class="font-bold">ChatGPT</h2>
                 <p class="text-green-600">Operational</p>
-                <div class="mt-2">
+                <div class="mt-2 tooltip">
                     <div class="h-1 w-full bg-gray-200 rounded">
                         <div class="h-1 bg-green-600 rounded" style="width: 99.46%"></div>
                     </div>
                     <p class="text-xs text-gray-600">99.46% uptime</p>
+                    <span class="tooltiptext">13 Jun 2024<br>No downtime recorded on this day.<br>Elevated error rate impacting the API.</span>
                 </div>
             </div>
             <div class="bg-white rounded shadow p-4">
                 <h2 class="font-bold">Labs</h2>
                 <p class="text-green-600">Operational</p>
-                <div class="mt-2">
+                <div class="mt-2 tooltip">
                     <div class="h-1 w-full bg-gray-200 rounded">
                         <div class="h-1 bg-green-600 rounded" style="width: 100%"></div>
                     </div>
                     <p class="text-xs text-gray-600">100% uptime</p>
+                    <span class="tooltiptext">No incidents reported.</span>
                 </div>
             </div>
             <div class="bg-white rounded shadow p-4">
                 <h2 class="font-bold">Playground</h2>
                 <p class="text-green-600">Operational</p>
-                <div class="mt-2">
+                <div class="mt-2 tooltip">
                     <div class="h-1 w-full bg-gray-200 rounded">
                         <div class="h-1 bg-green-600 rounded" style="width: 100%"></div>
                     </div>
                     <p class="text-xs text-gray-600">100% uptime</p>
+                    <span class="tooltiptext">No incidents reported.</span>
                 </div>
             </div>
         </div>
